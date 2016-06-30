@@ -1,65 +1,82 @@
-module.exports = function(chai) {
-    chai.tv4.addSchema('courseLinkSchema', {
+module.exports = function (chai) {
+
+    chai.tv4.addSchema('schemas.worktodo.assignmentList', {
+        type: 'array',
+        required: ['id', 'position', 'name'],
+        properties: {
+            id: {
+                type: 'number'
+            },
+            position: {
+                type: 'number'
+            },
+            name: {
+                type: 'string'
+            }
+        }
+    });
+
+    chai.tv4.addSchema('schemas.worktodo.course-link', {
         type: 'object',
         required: ['couAssOrder', 'couAssPageNumber', 'fkAssId', 'fkCouId', 'pkCouAssId'],
         properties: {
             couAssOrder: {
-                type: 'number'
+                type: 'integer'
             },
             couAssPageNumber: {
-                type: 'number'
+                type: 'integer'
             },
             fkAssId: {
-                type: 'number'
+                type: 'integer'
             },
             fkCouId: {
-                type: 'number'
+                type: 'integer'
             },
             pkCouAssId: {
-                type: 'number'
+                type: 'integer'
             }
         }
     });
 
-    chai.tv4.addSchema('schedulesSchema', {
+    chai.tv4.addSchema('schemas.worktodo.schedules', {
         type: 'object',
         required: ['assDisplayTime', 'fkAssId', 'fkCouId', 'fkStuId', 'pkTskId', 'tskLabelDisplayTime', 'tskOrder'],
         properties: {
             assDisplayTime: {
-                type: 'number'
+                type: 'integer'
             },
             fkAssId: {
-                type: 'number'
+                type: 'integer'
             },
             fkCouId: {
-                type: 'number'
+                type: 'integer'
             },
             fkStuId: {
-                type: 'number'
+                type: 'integer'
             },
             pkTskId: {
-                type: 'number'
+                type: 'integer'
             },
             tskLabelDisplayTime: {
-                type: 'number'
+                type: 'integer'
             },
             tskOrder: {
-                type: 'number'
+                type: 'integer'
             }
         }
     });
 
-    chai.tv4.addSchema('workToDoSchema', {
+    chai.tv4.addSchema('schemas.worktodo', {
         type: 'object',
         required: ['courseLink', 'schedules'],
         properties: {
             courseLink: {
                 type: 'array',
-                items: {'$ref': 'courseLinkSchema'}
+                items: {'$ref': 'schemas.worktodo.course-link'}
             },
             schedules: {
                 type: 'array',
-                items: {'$ref': 'schedulesSchema'}
+                items: {'$ref': 'schemas.worktodo.schedules'}
             }
         }
     });

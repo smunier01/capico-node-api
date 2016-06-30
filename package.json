@@ -7,5 +7,8 @@
         "request": "^2.72.0",
         "chai": "^3.5.0",
         "chai-json-schema": "^1.2.0"
+    },
+    "scripts": {
+        "test": "mocha src/main.js"
     }
 }
