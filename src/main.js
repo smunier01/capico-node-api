@@ -5,7 +5,7 @@ var chai = require('chai');
 chai.use(require('chai-json-schema'));
 
 var resources = {
-    init: function (chai) {
+    loadSchemas: function (chai) {
         require('./schemas/worktodo-schemas.js')(chai);
         require('./schemas/licences-schemas.js')(chai);
     },
@@ -22,7 +22,7 @@ var conf = {
     api: supertest('https://smuniervm.excilys.com/jooq')
 };
 
-resources.init(chai);
+resources.loadSchemas(chai);
 resources.test(chai, conf);
 
 

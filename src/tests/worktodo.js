@@ -5,7 +5,7 @@ module.exports = function (chai, conf) {
                 .auth(conf.auth_user, conf.auth_pwd)
                 .expect(200)
                 .end(function (err, res) {
-                    chai.assert.jsonSchema(res.body, 'schemas.worktodo');
+                    chai.assert.jsonSchema(res.body, chai.tv4.getSchema('schemas.worktodo'));
                     done();
                 });
         });

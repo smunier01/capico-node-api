@@ -1,5 +1,4 @@
 module.exports = function (chai) {
-
     chai.tv4.addSchema('schemas.worktodo.assignmentList', {
         type: 'array',
         required: ['id', 'position', 'name'],

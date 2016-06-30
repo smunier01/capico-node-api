@@ -1,5 +1,4 @@
 module.exports = function (chai) {
-
     chai.tv4.addSchema('schemas.licences.availableInCatalogue', {
         type: 'object',
         required: ['userLogin'],
@@ -53,5 +52,4 @@ module.exports = function (chai) {
             }
         }
     });
-
 };
