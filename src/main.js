@@ -1,29 +1,23 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-var supertest = require('supertest');
 var chai = require('chai');
 chai.use(require('chai-json-schema'));
 
-var resources = {
-    loadSchemas: function (chai) {
-        require('./schemas/worktodo-schemas.js')(chai);
-        require('./schemas/licences-schemas.js')(chai);
-    },
-    test: function (chai, conf) {
-        require('./tests/worktodo.js')(chai, conf);
-        require('./tests/authenticate.js')(chai, conf);
-        require('./tests/licences.js')(chai, conf);
-    }
+var loadSchemas = function (chai) {
+    //require('./user/user.schema.js')(chai);
+    // require('./worktodo/worktodo-schemas.js')(chai);
+    // require('./licence/licence.schema.js')(chai);
 };
 
-var conf = {
-    auth_user: 'cnorris',
-    auth_pwd: 'cnorris1',
-    api: supertest('https://smuniervm.excilys.com/jooq')
+var startTests = function (chai) {
+    require('./authenticate/authenticate.test.js')(chai);
+    require('./user/user.test.js')(chai);
+    // require('./worktodo/worktodo.test.js')(chai);
+    require('./licence/licence.test.js')(chai);
 };
 
-resources.loadSchemas(chai);
-resources.test(chai, conf);
+loadSchemas(chai);
+startTests(chai);
 
 
 
