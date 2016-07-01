@@ -1,7 +1,7 @@
 {
     "name": "capico-api-test-node",
     "version": "0.1.0",
-    "main": "src/main.js",
+    "main": "./main.js",
     "dependencies": {
         "supertest": "^1.2.0",
         "request": "^2.72.0",
@@ -10,6 +10,6 @@
         "promise": "^7.1.1"
     },
     "scripts": {
-        "test": "mocha src/main.js"
+        "test": "mocha ./main.js"
     }
 }

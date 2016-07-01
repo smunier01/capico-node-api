@@ -1,10 +1,7 @@
 var user = require('../user/user.js');
 var licence = require('./licence.js');
-var conf = require('../conf.js');
-var schemas = require('./licence.schema.js');
 
-module.exports = function (chai) {
-
+module.exports = function () {
     describe('licences', function () {
         it('should get available licences for user', function (done) {
             licence.getAvailableLicencesForUser(function (res) {
