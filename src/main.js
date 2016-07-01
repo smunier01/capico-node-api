@@ -3,12 +3,6 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 var chai = require('chai');
 chai.use(require('chai-json-schema'));
 
-var loadSchemas = function (chai) {
-    //require('./user/user.schema.js')(chai);
-    // require('./worktodo/worktodo-schemas.js')(chai);
-    // require('./licence/licence.schema.js')(chai);
-};
-
 var startTests = function (chai) {
     require('./authenticate/authenticate.test.js')(chai);
     require('./user/user.test.js')(chai);
@@ -16,7 +10,6 @@ var startTests = function (chai) {
     require('./licence/licence.test.js')(chai);
 };
 
-loadSchemas(chai);
 startTests(chai);
 
 
