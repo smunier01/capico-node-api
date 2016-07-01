@@ -38,6 +38,40 @@ schemas.courseLink = {
     }
 };
 
+schemas.schedules = {
+    type: 'object',
+    required: ['assDisplayTime', 'fkAssId', 'fkCouId', 'fkStuId', 'pkTskId', 'tskLabelDisplayTime', 'tskOrder'],
+    properties: {
+        assDisplayTime: {
+            type: 'integer'
+        }
+        ,
+        fkAssId: {
+            type: 'integer'
+        }
+        ,
+        fkCouId: {
+            type: 'integer'
+        }
+        ,
+        fkStuId: {
+            type: 'integer'
+        }
+        ,
+        pkTskId: {
+            type: 'integer'
+        }
+        ,
+        tskLabelDisplayTime: {
+            type: 'integer'
+        }
+        ,
+        tskOrder: {
+            type: 'integer'
+        }
+    }
+};
+
 schemas.worktodo = {
     type: 'object',
     required: ['courseLink', 'schedules'],
@@ -48,7 +82,9 @@ schemas.worktodo = {
         },
         schedules: {
             type: 'array',
-            items: schemas.assignmentList
+            items: schemas.schedules
         }
     }
 };
+
+module.exports = schemas;

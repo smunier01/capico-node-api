@@ -6,7 +6,7 @@ chai.use(require('chai-json-schema'));
 var startTests = function (chai) {
     require('./authenticate/authenticate.test.js')(chai);
     require('./user/user.test.js')(chai);
-    // require('./worktodo/worktodo.test.js')(chai);
+    require('./worktodo/worktodo.test.js')(chai);
     require('./licence/licence.test.js')(chai);
 };
 
