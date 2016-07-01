@@ -1,5 +1,6 @@
 var conf = require('../conf.js');
 var chai = require('chai');
+chai.use(require('chai-json-schema'));
 var schemas = require('./worktodo.schema.js');
 
 module.exports = {

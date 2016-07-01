@@ -1,6 +1,7 @@
 var conf = require('../conf.js');
 var schemas = require('./licence.schema.js');
 var chai = require('chai');
+chai.use(require('chai-json-schema'));
 
 module.exports = {
     getAvailableLicencesInCatalogue: function (done) {
@@ -17,7 +18,7 @@ module.exports = {
             .auth(conf.auth_user, conf.auth_pwd)
             .expect(200)
             .end(function(err, res) {
-                // @TODO check result of avaiableForUser
+                // @TODO check result of availableForUser
                 done(res);
             });
     },

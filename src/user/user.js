@@ -1,6 +1,6 @@
 var conf = require('../conf.js');
-// var Promise = require('promise');
 var chai = require('chai');
+chai.use(require('chai-json-schema'));
 var schemas = require('./user.schema.js');
 
 module.exports = {
